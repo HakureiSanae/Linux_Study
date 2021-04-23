@@ -1,0 +1,19 @@
+1.Curses函数库的编译
+  (1)头文件curses.h
+      ls -l /usr/include/*curses.h    (查看头文件)
+      ls -l /usr/lib/lib*curses*      (查看库文件, 笔者所用的Cloud Stdio中的zsh没有找到)
+  (2)gcc编译
+      gcc filename.c -o filename -lcurses   (curses.h和ncurses.h都是链接文件, 且系统中存在ncurses库文件)
+      gcc -I usr/include/ncurses filename.c -o filename -lncurses 
+      (未自动使用ncurses函数库,需要#include<ncurses.h>来强制使用ncurses函数库)
+    
+2.Curses术语与概念
+  (1)屏幕(screen): 设备(一般就是终端屏幕)
+    窗口(window)：
+    子窗口(child window):
+  
+  (2)curses函数库用stdscr和 curscr两个数据结果来映射终端屏幕。输出到stdscr的内容需要调用refresh函数之后才会显示到屏幕上。
+  (3)curses输出字符串分为两步:
+      (a)使用curses函数刷新逻辑屏幕
+      (b)要求curses用refresh函数来刷新物理屏幕
+      
