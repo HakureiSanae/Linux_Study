@@ -27,4 +27,11 @@
 (4)移动光标
   int move(int new_y, int new_x);   //将(逻辑)光标移动至指定地点(行,列)
   int leaveok(WINDOWS *window_ptr, bool leave_flag);    //默认为false, 硬件光标留在逻辑光标位置. 为true时，硬件光标会随机放在屏幕上的任意位置
-
+  
+(5)字符属性
+  int attron(chtype attribute);   //开启指定属性
+  int attroff(chtype attribute);  //关闭指定属性
+  int attrset(chtype attribute);  //设置指定属性
+  int standout(void);             //开启反白模式
+  int standend(void);             //关闭反白模式‘
+  
