@@ -1,0 +1,17 @@
+#include<curses.h>
+
+(1)输出到屏幕
+  int addch(const chtyp char_to_add);   //当前位置添加字符  
+  int addchstr(chtype * const string_to_add);   //当前位置添加字符串
+  int printw(char, *format, ...);       //同printf，输出字符到屏幕
+  int refresh(void);      //刷新(物理)屏幕
+  int box(WINDOW *win_ptr, chtype vertical_char, chtype horizontal_char);
+  int insch(chtype char_to_insert);   //插入字符,已有字符右移
+  
+  int insertln(void);   //插入空白行，已有行下移
+  int delch(void);      //删除字符,已有字符左移
+  int deleteln(void);   //删除空白行,已有行上移
+  int flash(void);      //使屏幕闪烁,如果不能闪烁则发出声音
+ 
+(2)
+
