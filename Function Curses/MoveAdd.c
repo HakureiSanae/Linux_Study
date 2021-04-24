@@ -11,14 +11,16 @@ int main()
     const char witch_two[] = "Second Witch ";
     const char *scan_ptr;
   
-    initscr();
+    initscr();        //初始化屏幕
     
+    //以高亮度模式输出
     move(5,15);
     attron(A_BOLD);
     printw("%s", "Macbeth");
     attroff(A_BOLD);
     refresh();
-
+    
+    //以强调模式(反白)输出
     move(8,15);
     attron(A_STANDOUT);
     printw("%s", "Thunder and Lighting");
@@ -36,8 +38,9 @@ int main()
     printw("%s", "When the battle's lost and won.");
     refresh();
     sleep(1);
-
-    attron(A_DIM);
+    
+    //插入witch_one和witch_two两个字符串
+    attron(A_DIM);      
     scan_ptr = witch_one + strlen(witch_one) - 1;
     while(scan_ptr != witch_one){
         move(10,10);
@@ -52,10 +55,11 @@ int main()
     refresh();
     sleep(1);
     move(LINES-1, COLS-1);
-
+ 
     refresh();
     sleep(1);
-    endwin();
+    
+    endwin();       //关闭窗口
     exit(EXIT_SUCCESS);
 }
 
