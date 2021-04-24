@@ -33,5 +33,5 @@
   int attroff(chtype attribute);  //关闭指定属性
   int attrset(chtype attribute);  //设置指定属性
   int standout(void);             //开启反白模式
-  int standend(void);             //关闭反白模式‘
+  int standend(void);             //关闭反白模式
   
