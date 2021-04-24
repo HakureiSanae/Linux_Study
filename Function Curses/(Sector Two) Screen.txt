@@ -4,14 +4,27 @@
   int addch(const chtyp char_to_add);   //当前位置添加字符  
   int addchstr(chtype * const string_to_add);   //当前位置添加字符串
   int printw(char, *format, ...);       //同printf，输出字符到屏幕
-  int refresh(void);      //刷新(物理)屏幕
-  int box(WINDOW *win_ptr, chtype vertical_char, chtype horizontal_char);
-  int insch(chtype char_to_insert);   //插入字符,已有字符右移
+  int box(WINDOW *win_ptr, chtype vertical_char, chtype horizontal_char); //围绕窗口绘制方框
+  int insch(chtype char_to_insert);   //插入字符,已有字符右移  
   
   int insertln(void);   //插入空白行，已有行下移
   int delch(void);      //删除字符,已有字符左移
   int deleteln(void);   //删除空白行,已有行上移
+  int refresh(void);    //刷新(物理)屏幕
   int flash(void);      //使屏幕闪烁,如果不能闪烁则发出声音
  
-(2)
+(2)从屏幕读取
+  chtype inch(void);        //返回光标当前位置的字符及其属性信息
+  int instr(char *string);  //将返回内容写到字符数组中
+  int innstr(char *string, int num_of_characters);  //将返回内容前num_of_characters个写回字符数组,
+
+(3)清除屏幕
+  int erase(void);    //每个屏幕位置写上空白字符
+  int clear(void);    //类似erase,但会调用clearok函数强制重现屏幕原文
+  int clrtobot(void);   //清除当前光标位置至屏幕结尾所有内容
+  int clrtoeol(void);   //清除当前光标位置至行尾所有内容(clear to end of line)
+ 
+(4)移动光标
+  int move(int new_y, int new_x);   //将(逻辑)光标移动至指定地点(行,列)
+  int leaveok(WINDOWS *window_ptr, bool leave_flag);    //默认为false, 硬件光标留在逻辑光标位置. 为true时，硬件光标会随机放在屏幕上的任意位置
 
