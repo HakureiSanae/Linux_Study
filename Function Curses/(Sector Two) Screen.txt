@@ -35,3 +35,12 @@
   int standout(void);             //开启反白模式
   int standend(void);             //关闭反白模式
   
+  attribute取值:
+  A_UNDERLINE: 加底线.
+  A_REVERSE: 反白.
+  A_BLINK: 闪烁.
+  A_BOLD: 高亮度.
+  A_NORMAL: 标准模式(只配合attrset函数)
+  A_DIM:
+  
+  
