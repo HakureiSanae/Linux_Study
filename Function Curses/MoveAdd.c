@@ -27,7 +27,8 @@ int main()
     attroff(A_STANDOUT);
     refresh();
     sleep(1);
-
+    
+    //标准模式输出
     move(10, 10);
     printw("%s", "When shall we three meet again");
     move(11, 23);
@@ -39,7 +40,7 @@ int main()
     refresh();
     sleep(1);
     
-    //插入witch_one和witch_two两个字符串
+    //插入witch_one和witch_two两个字符串(以A_DIM模式)
     attron(A_DIM);      
     scan_ptr = witch_one + strlen(witch_one) - 1;
     while(scan_ptr != witch_one){
