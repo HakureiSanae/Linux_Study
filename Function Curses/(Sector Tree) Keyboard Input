@@ -1,0 +1,6 @@
+#include<curses.h>
+
+int getch(void);                //从屏幕获取字符(get char)
+int getstr(char *string);       //从屏幕获取字符串(get string)
+int getnstr(char *string, int number_of_characters);  //从屏幕获取长度为number_of_characters的字符串
+int scanw(char *format, ...);   //从屏幕获取字符(类似于scanf)
