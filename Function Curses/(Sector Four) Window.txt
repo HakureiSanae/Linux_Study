@@ -2,6 +2,7 @@
 
 #include<curses.h>
 
+
 1.WINODW结构
 
 WINDOW *newwin(int num_of_lines, int num_of_cols, int start_y, int start_x);  //创建一个新窗口,参数依次表示窗口总行数和列数、开始的行数和列数
