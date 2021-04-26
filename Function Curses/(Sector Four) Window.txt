@@ -1,0 +1,31 @@
+一个终端可以显示多个窗口
+
+#include<curses.h>
+
+1.WINODW结构
+
+WINDOW *newwin(int num_of_lines, int num_of_cols, int start_y, int start_x);  //创建一个新窗口,参数依次表示窗口总行数和列数、开始的行数和列数
+int delwin(WINDOW *window_to_delete); //删除窗口  !!不要尝试删除curses自己的窗口stdscr和curscr
+
+2.通用函数
+
+int addch(const chtype char);     //当前光标位置添加字符
+int waddch(WINDOW *window_pointer, const chtype char);  //指定的窗口当前光标位置添加字符
+int mvaddch(int y, int x, const chtype char);   //当前光标位置移动并且添加字符
+int mvwaddch(WINDOW *window_pointer, int y, int x, const chtype char);  //  指定的窗口当前光标位置移动并且添加字符
+
+int printw(char *format, ...);  //在屏幕上输出字符串
+int wprintw(WINDOW * window_pointer, char *forma) //在指定窗口输出字符串
+int mvprintw(int y, int x, char *format, ...);    //当前光标位置移动并且输出字符串
+int mvwprintw(WINDOW *window_pointer, int y, int x, char *format, ...);   //指定的窗口当前光标位置移动并且输出字符串
+
+3.移动和更新窗口
+
+int mvwin(WINDOW *window_to_move, int new_y, new_x);  //移动窗口, (new_y, new_x)表示原点新坐标
+int wrefresh(WINDOW *window_ptr);     //刷新窗口
+int wclear(WINDOW *window_ptr);       //清除窗口内容
+int werase(WINODW *window_ptr);       //类似wclear函数
+int touchwin(WINDOW *window_ptr);     //提示curses指针指向的窗口内容已改变
+int scrolloc(WINDOW *window_ptr, bool scroll_flag);   //scroll_flog为True是允许卷屏
+int sfcroll(WINDOW *window_ptr);      //卷屏,把窗口内容上卷一行
+
