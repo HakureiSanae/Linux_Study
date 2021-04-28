@@ -1,0 +1,9 @@
+#include<curses.h>
+
+1.子窗口的创建和删除
+WINDOW *subwin(WINDOW *parent, int num_of_lines, int num_of_cols, int start_y, int start_x);  //创建子窗口，参数为窗口大小和起始位置和
+int delwin(WINDOW *window_to_delete);     //删除子窗口
+
+
+2.子窗口的限制
+refresh前必须先对其父窗口调用touchwin函数
