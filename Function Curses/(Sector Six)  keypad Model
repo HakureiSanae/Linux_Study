@@ -1,0 +1,5 @@
+#include <curses.h>
+
+int keypad(WINDOW * window_ptr, bool keypad_on);   //keypad_on = True, 开启keypad模式
+
+keypad模式:curses接管按键转义序列的处理工作
