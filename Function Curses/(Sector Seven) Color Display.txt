@@ -1,0 +1,7 @@
+#include <curses.h>
+
+bool has_colors(void);    //判断终端是否支持彩色显示
+int start_color(void);    //开始着色
+int init_pair(short pair_number, short foreground, short background);     //颜色组合初始化
+int COLOR_PAIR(int pair_number);        //把颜色作为属性来访问
+int pair_content(short pair_number, short *foreground, short *background);  //获取已定义的颜色组合信息
