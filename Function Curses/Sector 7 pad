@@ -1,0 +1,8 @@
+pad结构类似WINDOW，是一个略大于物理屏幕的逻辑屏幕
+
+#include<curses.h>
+
+WINDOW *newpad(int number_of_lines, int number_of_colnums);     //创建一个新pad
+int prefresh(WINDOW *pad_ptr, int pad_row, int pad_colnum,      //刷新pad屏幕，需要指定pad放到屏幕的范围及位置
+              int screen_row_min, int screen_col_min, 
+              int screen_row_max, int screen_col_max);
