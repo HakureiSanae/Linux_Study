@@ -1,0 +1,5 @@
+#include<stdlib.h>
+
+void *malloc(size_t size);    //分配内存(单位为Byte)
+void *calloc(size_t number_of_elements, size_t element_size);   //为结构数组分配内存,参数为元素个数和元素大小
+void *realloc(void *existing_memoery, size_t new_size);         //改变以及分配的内存块长度
