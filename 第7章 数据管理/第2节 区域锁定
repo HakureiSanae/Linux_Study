@@ -1,3 +1,24 @@
 #include <fcntl.h>
 
 int fcntl(int fildes, int command, ...);    //fcntl对一个打开的文件描述符进行操作, command选项:F_GETLK, F_SETLK, F_SETLKW
+int fcntl(int fildes, int command, struct flock *flock_structure);    
+/*flock结构包括:
+short l_type      //取值为SEEK_SET, SEEK_CUR, SEEK_END中的一个
+short l_whence    //取值为SEEK_SET, SEEK_CUR, SEEK_END中的一个
+off_t l_start
+off_t l_len
+pid_t l_pid
+*/
+
+(1)F_GETLK命令: 获取fildes打开的文件的锁信息
+l_type:     共享(只读)则取值为R_RDLCK, 独占(写)则取值为F_WRLCK
+l_whence:   SEEK_SET, SEEK_CUR, SEEK_END中的一个
+l_start:    感兴趣的文件区域的第一个字节的相对位置
+l_len:      感兴趣的文件区域的字节数
+l_pid:      持有锁的进程的标识符
+
+(2)F_SETLK: 对fildes指向的文件的整个区域加锁或解锁
+l_type    共享(只读)则取值为R_RDLCK, 独占(写)则取值为F_WRLCK,解锁则取值为F_UNLCK
+l_pid     不使用
+
+(3)F_SETLKW:同F_SETLK,但是在无法获取锁时，这个调用将等待直到可以为止。
