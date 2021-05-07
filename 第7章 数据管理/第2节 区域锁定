@@ -1,0 +1,3 @@
+#include <fcntl.h>
+
+int fcntl(int fildes, int command, ...);    //fcntl对一个打开的文件描述符进行操作, command选项:F_GETLK, F_SETLK, F_SETLKW
