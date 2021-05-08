@@ -22,3 +22,5 @@ l_type    共享(只读)则取值为R_RDLCK, 独占(写)则取值为F_WRLCK,解�
 l_pid     不使用
 
 (3)F_SETLKW:同F_SETLK,但是在无法获取锁时，这个调用将等待直到可以为止。
+
+文件区域加锁后,使用write和read而不是更高级的fread和fwrite(fread和fwrite会对读写的数据进行缓存)
