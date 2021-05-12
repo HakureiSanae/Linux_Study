@@ -1,0 +1,4 @@
+(1)dbm访问函数
+#include <ndbm.h>
+
+DBM *dbm_open(const char *filename, int file_open_flags, mode_t file_mode);
