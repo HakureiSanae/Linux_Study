@@ -1,4 +1,7 @@
 (1)dbm访问函数
 #include <ndbm.h>
 
-DBM *dbm_open(const char *filename, int file_open_flags, mode_t file_mode);
+DBM *dbm_open(const char *filename, int file_open_flags, mode_t file_mode); //打开或创建数据库，，filename为文件名,file_open_flags为读写权限, file_mode为被创建文件的初始权限
+int dbm_store(DBM *database_descriptor, datum key, datum content , int store_mode); //把数据存到数据库中key为索引,content为实际数据,store_mode用于设置相同关键字的处理方式(dbm_replace或dbm_insert)
+datum dbm_fetch(DBM *database_descriptor, datum key);     //从数据库中检索数据
+void dbm_close(DBM *database_descriptor);         //关闭数据库
