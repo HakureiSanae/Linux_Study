@@ -5,3 +5,11 @@ DBM *dbm_open(const char *filename, int file_open_flags, mode_t file_mode); //�
 int dbm_store(DBM *database_descriptor, datum key, datum content , int store_mode); //把数据存到数据库中key为索引,content为实际数据,store_mode用于设置相同关键字的处理方式(dbm_replace或dbm_insert)
 datum dbm_fetch(DBM *database_descriptor, datum key);     //从数据库中检索数据
 void dbm_close(DBM *database_descriptor);         //关闭数据库
+
+int dbm_delete(DBM *database_descriptor, datum key);    //删除数据项
+int dbm_error(DBM *database_descriptor);        //测试数据库中是否有错误发生
+int clearerr(DBM *database_descriptor);         //清除数据库中所有已经被置位的错误条件标志
+
+//以下两个函数成对使用来对数据库中的所有关键字进行扫描
+datum dbm_firstkey(DBM *database_descriptor);   //首个关键字
+datum dbm_nextkey(DBM * database_descriptor);   //下一个关键字
